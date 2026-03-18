@@ -1,0 +1,91 @@
+# ==========================================
+# 云服务器配置（优化版）
+# ==========================================
+
+# 开发服务器
+Host dev
+    HostName 134.175.107.183
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+# 生产环境
+Host aimeeting
+    HostName 47.107.32.167
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+# 测试环境
+Host test
+    HostName 47.115.160.254
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+# 客户环境
+Host aiotav
+    HostName 47.100.189.182
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519
+    ForwardAgent yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+# ==========================================
+# 局域网设备（已去重）
+# ==========================================
+
+# Razer Windows (LUHAORAZER)
+Host razer
+    HostName 192.168.31.27
+    User luhao
+    IdentityFile ~/.ssh/id_ed25519
+
+# Razer WSL (Ubuntu 24.04)
+Host razer-wsl
+    HostName 192.168.31.27
+    Port 2222
+    User luhao
+    IdentityFile ~/.ssh/id_ed25519
+
+# MacBook Air（局域网）
+Host air
+    HostName 192.168.31.206
+    User lulu
+    IdentityFile ~/.ssh/id_ed25519
+
+# MacBook Air（Tailscale）
+Host t-air
+    HostName 100.101.191.83
+    User lulu
+
+# Mac Mini
+Host mini
+    HostName 192.168.31.109
+    User luhao
+    IdentityFile ~/.ssh/id_ed25519
+
+# Mac Mini Ubuntu VM
+Host minivm
+    HostName 192.168.31.109
+    User luhaomini
+    Port 60222
+    IdentityFile ~/.ssh/id_ed25519
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+# Mac Mini（Tailscale）
+Host t-mini
+    HostName 100.72.166.33
+    User luhao
