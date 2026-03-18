@@ -59,6 +59,17 @@ Host razer-wsl
     User luhao
     IdentityFile ~/.ssh/id_ed25519
 
+# MacBook Pro（局域网）
+Host pro
+    HostName 192.168.31.207
+    User luhao
+    IdentityFile ~/.ssh/id_ed25519
+
+# MacBook Pro（Tailscale）
+Host t-pro
+    HostName 100.127.35.107
+    User luhao
+
 # MacBook Air（局域网）
 Host air
     HostName 192.168.31.206
