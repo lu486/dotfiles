@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "windows" -}}
+$packages = @("fzf", "chezmoi")
+foreach ($pkg in $packages) {
+    if (-not (scoop list $pkg 2>$null | Select-String $pkg)) {
+        scoop install $pkg
+    }
+}
+{{- end }}
