@@ -52,6 +52,11 @@ Host razer
     User luhao
     IdentityFile ~/.ssh/id_ed25519
 
+# Razer Windows（Tailscale）
+Host t-razer
+    HostName 100.68.100.102
+    User luhao
+
 # Razer WSL (Ubuntu 24.04)
 Host razer-wsl
     HostName luhaorazer.local
