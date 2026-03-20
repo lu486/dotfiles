@@ -2,5 +2,5 @@
 #!/bin/bash
 set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
-brew bundle --no-lock --file="$(chezmoi source-path)/Brewfile"
+brew bundle --file="{{ .chezmoi.sourceDir }}/Brewfile" --no-upgrade
 {{- end }}
