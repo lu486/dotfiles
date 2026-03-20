@@ -48,20 +48,20 @@ Host aiotav
 
 # Razer Windows (LUHAORAZER)
 Host razer
-    HostName 192.168.31.27
+    HostName luhaorazer.local
     User luhao
     IdentityFile ~/.ssh/id_ed25519
 
 # Razer WSL (Ubuntu 24.04)
 Host razer-wsl
-    HostName 192.168.31.27
+    HostName luhaorazer.local
     Port 2222
     User luhao
     IdentityFile ~/.ssh/id_ed25519
 
 # MacBook Pro（局域网）
 Host pro
-    HostName 192.168.31.207
+    HostName luhaodeMacBook-Pro.local
     User luhao
     IdentityFile ~/.ssh/id_ed25519
 
@@ -72,7 +72,7 @@ Host t-pro
 
 # MacBook Air（局域网）
 Host air
-    HostName 192.168.31.206
+    HostName lus-MacBook-Air.local
     User lulu
     IdentityFile ~/.ssh/id_ed25519
 
@@ -83,13 +83,13 @@ Host t-air
 
 # Mac Mini
 Host mini
-    HostName 192.168.31.109
+    HostName luhaodeMac-mini.local
     User luhao
     IdentityFile ~/.ssh/id_ed25519
 
 # Mac Mini Ubuntu VM
 Host minivm
-    HostName 192.168.31.109
+    HostName luhaodeMac-mini.local
     User luhaomini
     Port 60222
     IdentityFile ~/.ssh/id_ed25519
