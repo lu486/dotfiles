@@ -84,7 +84,7 @@ Host t-air
 # Mac Mini
 Host mini
     HostName luhaodeMac-mini.local
-    User luhao
+    User luhaomini
     IdentityFile ~/.ssh/id_ed25519
 
 # Mac Mini Ubuntu VM
@@ -99,4 +99,4 @@ Host minivm
 # Mac Mini（Tailscale）
 Host t-mini
     HostName 100.72.166.33
-    User luhao
+    User luhaomini
