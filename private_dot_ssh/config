@@ -46,9 +46,9 @@ Host aiotav
 # 局域网设备（已去重）
 # ==========================================
 
-# Razer Windows (LUHAORAZER)
+# Razer Windows（局域网）
 Host razer
-    HostName luhaorazer.local
+    HostName 192.168.31.27
     User luhao
     IdentityFile ~/.ssh/id_ed25519
 
@@ -56,10 +56,18 @@ Host razer
 Host t-razer
     HostName 100.68.100.102
     User luhao
+    IdentityFile ~/.ssh/id_ed25519
 
-# Razer WSL (Ubuntu 24.04)
+# Razer WSL（局域网）
 Host razer-wsl
-    HostName luhaorazer.local
+    HostName 192.168.31.27
+    Port 2222
+    User luhao
+    IdentityFile ~/.ssh/id_ed25519
+
+# Razer WSL（Tailscale）
+Host t-razer-wsl
+    HostName 100.68.100.102
     Port 2222
     User luhao
     IdentityFile ~/.ssh/id_ed25519
