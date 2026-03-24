@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "windows" -}}
+$src = "$env:USERPROFILE\.config\zed\settings.json"
+$dst = "$env:APPDATA\Zed\settings.json"
+if (Test-Path $src) {
+    $dstDir = Split-Path $dst
+    if (-not (Test-Path $dstDir)) { New-Item -ItemType Directory -Path $dstDir -Force | Out-Null }
+    Copy-Item -Path $src -Destination $dst -Force
+    Write-Output "Synced Zed settings -> $dst"
+}
+{{ end -}}
