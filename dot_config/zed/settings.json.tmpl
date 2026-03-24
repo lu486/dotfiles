@@ -150,7 +150,24 @@
             }
           }
         ]
-      }{{ if ne .chezmoi.os "windows" }},
+      }{{ if eq .chezmoi.os "windows" }},
+      "LM-Studio": {
+        "api_url": "http://localhost:1234/v1",
+        "available_models": [
+          {
+            "name": "qwen/qwen3.5-9b",
+            "display_name": "Qwen3.5-9B (Local)",
+            "max_tokens": 32768,
+            "max_output_tokens": 8192
+          },
+          {
+            "name": "google/gemma-3-4b",
+            "display_name": "Gemma-3-4B (Local)",
+            "max_tokens": 32768,
+            "max_output_tokens": 8192
+          }
+        ]
+      }{{ end }}{{ if ne .chezmoi.os "windows" }},
       "glm": {
         "api_url": "https://open.bigmodel.cn/api/coding/paas/v4",
         "available_models": [
@@ -192,7 +209,17 @@
         "provider": "MiniMax",
         "model": "{{ .minimax_model }}",
         "enable_thinking": false
-      }{{ if ne .chezmoi.os "windows" }},
+      }{{ if eq .chezmoi.os "windows" }},
+      {
+        "provider": "LM-Studio",
+        "model": "qwen/qwen3.5-9b",
+        "enable_thinking": false
+      },
+      {
+        "provider": "LM-Studio",
+        "model": "google/gemma-3-4b",
+        "enable_thinking": false
+      }{{ end }}{{ if ne .chezmoi.os "windows" }},
       {
         "provider": "glm",
         "model": "glm-4.7",
