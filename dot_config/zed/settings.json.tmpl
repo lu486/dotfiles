@@ -1,0 +1,219 @@
+{{- /* hostname: luhaodeMacBook-Pro / luhaodeMac-mini / luhaorazer */ -}}
+{
+{{- if eq .chezmoi.os "windows" }}
+  "icon_theme": "Zed (Default)",
+  "wsl_connections": [
+    {
+      "distro_name": "Ubuntu",
+      "user": null,
+      "projects": [
+        {
+          "paths": [
+            "/home/luhao"
+          ]
+        }
+      ]
+    }
+  ],
+{{- end }}
+{{- if ne .chezmoi.os "windows" }}
+  "edit_predictions": {
+    "provider": "zed"
+  },
+{{- end }}
+  "agent_servers": {
+{{- if ne .chezmoi.os "windows" }}
+    "codex-acp": {
+      "type": "registry",
+      "favorite_models": [
+        "gpt-5.2-codex/high"
+      ]
+    },
+    "claude-acp": {
+      "type": "registry",
+      "favorite_models": [
+        "opus"
+      ]
+    },
+    "github-copilot-cli": {
+      "type": "registry"
+    },
+    "cursor": {
+      "favorite_config_option_values": {
+        "model": [
+          "claude-opus-4-6[thinking=true,context=200k,effort=high,fast=false]"
+        ]
+      },
+      "type": "registry"
+    },
+    "kilo": {
+      "type": "registry"
+    },
+    "cline": {
+      "type": "registry"
+    },
+    "kimi": {
+      "type": "registry"
+    },
+{{- end }}
+{{- if eq .chezmoi.os "windows" }}
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    },
+    "gemini": {
+      "type": "registry"
+    },
+    "github-copilot-cli": {
+      "type": "registry"
+    },
+    "cursor": {
+      "type": "registry"
+    },
+{{- end }}
+    "qwen-code": {
+      "type": "registry"
+    },
+    "opencode": {
+{{- if ne .chezmoi.os "windows" }}
+      "type": "extension",
+      "favorite_models": [
+        "zhipuai-coding-plan/glm-4.7",
+        "github-copilot/claude-opus-4.5",
+        "openai/gpt-5.2-codex",
+        "minimax-cn/{{ .minimax_model }}",
+        "openai/gpt-5.2"
+      ],
+      "default_config_options": {},
+      "favorite_config_option_values": {}
+{{- else }}
+      "type": "registry"
+{{- end }}
+    },
+    "factory-droid": {
+      "favorite_models": [
+        "custom:{{ .minimax_model }}",
+        "custom:GLM-4.7-(Z.AI)-1"
+      ],
+      "type": "registry"
+    },
+    "github-copilot": {
+{{- if ne .chezmoi.os "windows" }}
+      "favorite_models": [
+        "gpt-5.2-codex",
+        "claude-opus-4.6"
+      ],
+{{- end }}
+      "type": "registry"
+    }
+  },
+{{- if ne .chezmoi.os "windows" }}
+  "context_servers": {
+    "mcp-server-sequential-thinking": {
+      "enabled": false,
+      "settings": {}
+    },
+{{- if .linear_api_key }}
+    "mcp-server-linear": {
+      "enabled": true,
+      "settings": {
+        "linear_api_key": "{{ .linear_api_key }}"
+      }
+    },
+{{- end }}
+{{- if .github_token }}
+    "mcp-server-github": {
+      "enabled": true,
+      "settings": {
+        "github_personal_access_token": "{{ .github_token }}"
+      }
+    }
+{{- end }}
+  },
+{{- end }}
+  "language_models": {
+    "openai_compatible": {
+      "MiniMax": {
+        "api_url": "https://api.minimaxi.com/v1",
+        "available_models": [
+          {
+            "name": "{{ .minimax_model }}",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false
+            }
+          }
+        ]
+      }{{ if ne .chezmoi.os "windows" }},
+      "glm": {
+        "api_url": "https://open.bigmodel.cn/api/coding/paas/v4",
+        "available_models": [
+          {
+            "name": "glm-4.7",
+            "max_tokens": 200000,
+            "max_output_tokens": 128000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true
+            }
+          }
+        ]
+      }{{ end }}
+    }
+  },
+  "agent": {
+    "default_model": {
+      "effort": "high",
+      "provider": "copilot_chat",
+      "model": "claude-opus-4.6",
+      "enable_thinking": {{ if ne .chezmoi.os "windows" }}true{{ else }}false{{ end }}
+    },
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "gpt-5.4",
+        "enable_thinking": false
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "claude-opus-4.6",
+        "enable_thinking": false
+      },
+      {
+        "provider": "MiniMax",
+        "model": "{{ .minimax_model }}",
+        "enable_thinking": false
+      }{{ if ne .chezmoi.os "windows" }},
+      {
+        "provider": "glm",
+        "model": "glm-4.7",
+        "enable_thinking": false
+      }{{ end }}
+    ],
+    "model_parameters": []
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "{{ if eq .chezmoi.os "windows" }}dark{{ else }}system{{ end }}",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+{{- if ne .chezmoi.os "windows" }}
+  "restore_on_startup": "empty_tab",
+{{- end }}
+  "terminal": {
+    "font_family": "MesloLGS Nerd Font",
+    "font_size": 14
+  }
+}

@@ -1,3 +1,12 @@
 [data]
     name = {{ promptStringOnce . "name" "Git user name" | quote }}
     email = {{ promptStringOnce . "email" "Git email" | quote }}
+
+    # API Keys
+    minimax_api_key = {{ promptStringOnce . "minimax_api_key" "MiniMax API Key" | quote }}
+    zai_api_key = {{ promptStringOnce . "zai_api_key" "Z.AI (GLM) API Key" | quote }}
+    linear_api_key = {{ promptStringOnce . "linear_api_key" "Linear API Key (留空跳过)" | quote }}
+    github_token = {{ promptStringOnce . "github_token" "GitHub Token (留空跳过)" | quote }}
+
+    # Model versions (升级模型只需改这里)
+    minimax_model = "MiniMax-M2.7"

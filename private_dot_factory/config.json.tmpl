@@ -1,0 +1,35 @@
+{
+  "custom_models": [
+    {
+      "model_display_name": "{{ .minimax_model }}",
+      "model": "{{ .minimax_model }}",
+      "base_url": "https://api.minimaxi.com/anthropic",
+      "api_key": "{{ .minimax_api_key }}",
+      "provider": "anthropic",
+      "max_tokens": 196608
+    },
+    {
+      "model_display_name": "GLM-4.7 (Z.AI)",
+      "model": "GLM-4.7",
+      "base_url": "https://api.z.ai/api/anthropic",
+      "api_key": "{{ .zai_api_key }}",
+      "provider": "anthropic"
+    }{{ if eq .chezmoi.hostname "razer" }},
+    {
+      "model_display_name": "Qwen3.5-9B (LM Studio Local)",
+      "model": "qwen/qwen3.5-9b",
+      "base_url": "http://localhost:1234/v1",
+      "api_key": "lm-studio",
+      "provider": "openai",
+      "max_tokens": 8192
+    },
+    {
+      "model_display_name": "Gemma-3-4B (LM Studio Local)",
+      "model": "google/gemma-3-4b",
+      "base_url": "http://localhost:1234/v1",
+      "api_key": "lm-studio",
+      "provider": "openai",
+      "max_tokens": 8192
+    }{{ end }}
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "customModels": [
+    {
+      "model": "{{ .minimax_model }}",
+      "id": "custom:{{ .minimax_model }}-0",
+      "index": 0,
+      "baseUrl": "https://api.minimaxi.com/anthropic",
+      "apiKey": "{{ .minimax_api_key }}",
+      "displayName": "{{ .minimax_model }}",
+      "maxOutputTokens": 196608,
+      "noImageSupport": false,
+      "provider": "anthropic"
+    },
+    {
+      "model": "GLM-4.7",
+      "id": "custom:GLM-4.7-(Z.AI)-1",
+      "index": 1,
+      "baseUrl": "https://api.z.ai/api/anthropic",
+      "apiKey": "{{ .zai_api_key }}",
+      "displayName": "GLM-4.7 (Z.AI)",
+      "maxOutputTokens": 200000,
+      "noImageSupport": false,
+      "provider": "anthropic"
+    }{{ if eq .chezmoi.hostname "razer" }},
+    {
+      "model": "qwen/qwen3.5-9b",
+      "id": "custom:Qwen3.5-9B-Local-2",
+      "index": 2,
+      "baseUrl": "http://localhost:1234/v1",
+      "apiKey": "lm-studio",
+      "displayName": "Qwen3.5-9B (LM Studio Local)",
+      "maxOutputTokens": 8192,
+      "noImageSupport": true,
+      "provider": "openai"
+    },
+    {
+      "model": "google/gemma-3-4b",
+      "id": "custom:Gemma-3-4B-Local-3",
+      "index": 3,
+      "baseUrl": "http://localhost:1234/v1",
+      "apiKey": "lm-studio",
+      "displayName": "Gemma-3-4B (LM Studio Local)",
+      "maxOutputTokens": 8192,
+      "noImageSupport": true,
+      "provider": "openai"
+    }{{ end }}
+  ],
+  "sessionDefaultSettings": {
+    "model": "custom:{{ .minimax_model }}-0",
+    "reasoningEffort": "none",
+    "autonomyMode": "normal"
+  },
+  "diffMode": "github",
+  "terminalColorMode": "dark"
+}
