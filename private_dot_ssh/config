@@ -113,3 +113,11 @@ Host minivm
 Host t-mini
     HostName 100.72.166.33
     User luhaomini
+
+# Tailscale 服务器
+Host tl
+    HostName 100.74.125.122
+    User haoyang
+    IdentityFile ~/.ssh/id_ed25519
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
