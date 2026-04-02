@@ -46,6 +46,19 @@ Host aiotav
 # 局域网设备（已去重）
 # ==========================================
 
+# 极空间NAS（局域网）
+Host zos
+    HostName 192.168.31.38
+    User 18688742701
+    Port 10000
+    IdentityFile ~/.ssh/id_ed25519
+
+# 飞牛NAS（局域网）
+Host fnos
+    HostName 192.168.31.160
+    User luhao
+    IdentityFile ~/.ssh/id_ed25519
+
 # Razer Windows（局域网）
 Host razer
     HostName 192.168.31.27
