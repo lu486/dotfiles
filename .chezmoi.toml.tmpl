@@ -8,5 +8,8 @@
     linear_api_key = {{ promptStringOnce . "linear_api_key" "Linear API Key (留空跳过)" | quote }}
     github_token = {{ promptStringOnce . "github_token" "GitHub Token (留空跳过)" | quote }}
 
+    # Machine name (终端提示符显示)
+    machine_name = {{ promptStringOnce . "machine_name" "Machine name (e.g. Macbookpro, Macmini, razer-wsl)" | quote }}
+
     # Model versions (升级模型只需改这里)
     minimax_model = "MiniMax-M2.7"
